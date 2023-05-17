@@ -1,24 +1,33 @@
 ﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Zadacha_16
 {
+    class FactorialException : ArgumentException
+    {
+        public FactorialException(string message) : base(message)
+        {
+        }
+    }
     internal class Program
     {
+ 
         public static void Main()
         {
-            Console.WriteLine("Введите число");
-            int x = Convert.ToInt32(Console.ReadLine());
-            if (x > 1) {
+            try
+            {
+                Console.WriteLine("Введите число");
+                int x = Convert.ToInt32(Console.ReadLine());
+
+                if (x < 1)
+                {
+                    throw new FactorialException("Вы ввели значение меньше 1");
+                }
                 Console.WriteLine($"Факториал числа {x} = {Factorial(x)}");
             }
-            else if(x < 1)
+            catch (FactorialException ex)
             {
-                Console.WriteLine("Значение меньше 1");
+                Console.WriteLine($"Ошибка: {ex.Message}");
             }
         }
 
