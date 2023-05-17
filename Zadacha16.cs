@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Zadacha_16
 {
     class FactorialException : ArgumentException
@@ -11,7 +10,6 @@ namespace Zadacha_16
     }
     internal class Program
     {
- 
         public static void Main()
         {
             try
